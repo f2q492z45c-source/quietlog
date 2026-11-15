@@ -1,0 +1,23 @@
+QUIETLOG V1.0 — prototype de départ
+
+Contenu :
+- Journal local d'événements (saisie manuelle)
+- Test de niveau sonore relatif avec le microphone, page au premier plan
+- Export CSV
+- Impression du journal / Enregistrer en PDF depuis le navigateur
+- Préparation d'un e-mail (les pièces jointes doivent être ajoutées manuellement)
+
+Limites :
+- Ce prototype ne réalise PAS de surveillance automatique 24 h/24.
+- iOS peut suspendre une PWA en arrière-plan ou lorsque l'écran est verrouillé.
+- Le niveau affiché n'est pas une mesure calibrée en décibels.
+- Aucun son n'est enregistré ou analysé pour identifier une personne ou un logement.
+- Les données sont stockées dans le navigateur de l'appareil : exporte régulièrement une copie.
+
+Pour installer :
+1. Héberger les fichiers sur un site HTTPS.
+2. Ouvrir l'adresse dans Safari sur l'iPhone.
+3. Utiliser Partager > Sur l'écran d'accueil.
+4. Autoriser le microphone uniquement au moment du test.
+
+Ce dossier est un prototype technique, pas une application publiée sur l'App Store.

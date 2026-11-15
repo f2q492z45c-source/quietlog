@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#14243a">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <title>QUIETLOG</title>
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="top">
+  <div class="brand">QUIETLOG <span>V1.0 — prototype</span></div>
+  <div class="status"><i id="statusDot"></i><span id="statusText">Microphone arrêté</span></div>
+</header>
+
+<main>
+  <section class="hero">
+    <p class="eyebrow">SURVEILLANCE ACOUSTIQUE DU LOGEMENT</p>
+    <h1>Tableau de bord</h1>
+    <p class="muted">Journal local des événements sonores et suivi des mesures.</p>
+  </section>
+
+  <section class="grid">
+    <article class="card metric">
+      <span class="label">Niveau sonore estimé</span>
+      <strong id="level">—</strong><small>indicateur relatif, non étalonné en dB</small>
+      <div class="meter"><div id="meterFill"></div></div>
+    </article>
+    <article class="card metric">
+      <span class="label">Événements aujourd'hui</span>
+      <strong id="countToday">0</strong><small>inscrits dans le journal</small>
+    </article>
+  </section>
+
+  <section class="card">
+    <h2>Test du microphone</h2>
+    <p class="muted">Le test fonctionne uniquement lorsque la page reste ouverte et que l'accès au microphone est autorisé.</p>
+    <div class="actions">
+      <button id="startMic" class="primary">Démarrer le test</button>
+      <button id="stopMic" class="secondary" disabled>Arrêter</button>
+    </div>
+    <p id="micMessage" class="notice">Aucun son n'est enregistré pendant ce simple test de niveau.</p>
+  </section>
+
+  <section class="card">
+    <h2>Ajouter un événement au journal</h2>
+    <p class="muted">En attendant la détection automatique, tu peux consigner un événement manuellement.</p>
+    <label for="kind">Type de bruit</label>
+    <select id="kind">
+      <option>Impact / coup</option><option>Pas / déplacements</option>
+      <option>Claquement de porte</option><option>Meuble / frottement</option>
+      <option>Voix / conversation audible</option><option>Vibration / bourdonnement</option>
+      <option>Autre bruit</option>
+    </select>
+    <label for="duration">Durée approximative</label>
+    <input id="duration" type="text" placeholder="Ex. : 15 secondes">
+    <label for="notes">Observations (facultatif)</label>
+    <textarea id="notes" rows="3" placeholder="Description factuelle du bruit…"></textarea>
+    <button id="addEvent" class="primary full">Ajouter au journal</button>
+  </section>
+
+  <section class="card">
+    <div class="row">
+      <div><h2>Journal des événements</h2><p class="muted">Données conservées sur cet appareil.</p></div>
+      <span class="pill" id="totalCount">0 événement</span>
+    </div>
+    <div id="events" class="events"><p class="empty">Aucun événement enregistré.</p></div>
+    <div class="actions wrap">
+      <button id="exportCsv" class="secondary">Exporter CSV</button>
+      <button id="printReport" class="secondary">Imprimer / PDF</button>
+      <button id="emailHelp" class="secondary">Préparer un e-mail</button>
+    </div>
+  </section>
+
+  <section class="warning">
+    <strong>Limite importante du prototype</strong>
+    <p>Une PWA sur iPhone ne garantit pas une écoute continue lorsque l'écran est verrouillé ou que Safari est en arrière-plan. Le niveau affiché ici est un indicateur relatif, pas une mesure réglementaire en décibels. Aucun bruit n'est attribué à un voisin.</p>
+  </section>
+</main>
+<footer>QUIETLOG — prototype local • Les données restent dans le navigateur de cet appareil.</footer>
+<script src="app.js"></script>
+</body>
+</html>
